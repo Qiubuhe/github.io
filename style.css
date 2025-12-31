@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #c33764, #1d2671);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.new-year-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23ff6b6b"/><path d="M20,20 Q40,5 60,20 T100,20 M20,40 Q40,25 60,40 T100,40 M20,60 Q40,45 60,60 T100,60 M20,80 Q40,65 60,80 T100,80" stroke="%23ffd166" stroke-width="1" fill="none"/></svg>');
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 装饰元素 */
+.decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.lantern {
+    position: absolute;
+    width: 60px;
+    height: 90px;
+    background: #e53e3e;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff6b6b;
+    animation: swing 3s ease-in-out infinite;
+}
+
+.lantern::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #ffd700;
+    border-radius: 50%;
+}
+
+.lantern::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 30px;
+    background: #8b4513;
+}
+
+.lantern1 {
+    top: 10%;
+    left: 15%;
+}
+
+.lantern2 {
+    top: 15%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: explode 2s infinite;
+    top: 20%;
+    left: 25%;
+}
+
+.firework2 {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    animation: explode 2s infinite 0.5s;
+    top: 30%;
+    right: 25%;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes explode {
+    0% { 
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% { 
+        transform: scale(5);
+        opacity: 0;
+    }
+}
+
+/* 输入页面样式 */
+.input-section {
+    text-align: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    width: 320px;
+}
+
+.title {
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+#userName {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ffd700;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    outline: none;
+}
+
+#userName:focus {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #e53e3e, #c33764);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 祝福页面样式 */
+.greeting-section {
+    text-align: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    width: 320px;
+}
+
+.greeting-title {
+    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.greeting-text {
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.red-envelope {
+    font-size: 4rem;
+    animation: bounce 2s infinite;
+    margin: 20px 0;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+.back-btn {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid #ffd700;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .title, .greeting-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .greeting-text {
+        font-size: 1.1rem;
+    }
+    
+    .input-section, .greeting-section {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    
+    .lantern {
+        width: 45px;
+        height: 70px;
+    }
+}
